@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% include 'nav.html'%}
+
+{% block content %}
+<link rel="stylesheet" type = "text/css", href="{% static 'css/main.css' %}">
+<body>
+    <p>Welcome to our anime masks collection {{name}}</p>
+    
+</body>
+{% endblock %}
+
+</html>

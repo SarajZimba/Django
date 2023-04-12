@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<p>This is store page</p>
+
+<div class="row">
+    {% for product in products%}
+    <div class="col-lg-4">
+        <img src="{{product.imageURL}}" class="thumbnail" alt="">
+        <div class="box-element product">
+            <h6><strong>{{product.name}}</strong></h6>
+            <button data-product= "{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart ">Add to cart</button>
+            <a  class="btn btn-outline-success" href="#">view</a>
+            <h4 style="display: inline block; float: right ">${{product.price}}</h4>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

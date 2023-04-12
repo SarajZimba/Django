@@ -1,0 +1,157 @@
+{% load static %}   
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>My Ecommerce Store</title>
+      
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'css/main.css' %}"> <!-- Optional CSS file for styling -->
+        <style>
+            body{
+                background-color: hsl(0, 0%, 98%);
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            
+            h1,h2,h3,h4,h5,h6{
+                color:hsl(0, 0%, 30%);
+                margin: 0;
+                padding: 0;
+            }
+            
+            /*
+            /* Style hero section */
+            .hero-section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80vh;
+                background-color: #fff;
+            }
+            
+            .hero-image img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            
+            .hero-content {
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            
+            
+            
+            /* Style featured products section */
+            .featured-products {
+                padding: 40px;
+                text-align: center;
+            }
+            
+            .featured-products h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            
+            .product-container {
+                display: flex;
+                justify-content: center;
+            }
+            
+            .product-card {
+                flex: 0 0 300px;
+                padding: 20px;
+                margin: 0 10px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            .product-card img {
+                max-width: 100%;
+                max-height: 200px;
+            }
+            
+            .product-card h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            
+            .product-card p {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            
+            .product-button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #333;
+                color: #fff;
+                text-decoration: none;
+                font-size: 14px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease-in-out;
+            }
+            
+            .product-button:hover {
+                background-color: #666;
+            }
+            
+            /* Style footer */
+            footer {
+                background-color: #333;}
+            */
+        </style>
+    </head>
+    <body>
+        {% block content %}
+        {% include 'nav.html'%}
+      <main>
+        <section class="hero-section">
+          <!-- <div class="hero-image">
+            <img src="hero-image.jpg" alt="Hero Image">
+          </div> -->
+          <div class="hero-content">
+            <h1>Welcome to My Ecommerce Store</h1>
+            <p>Find your favorite products at great prices!</p>
+            <a href="{% url 'store' %}" class="btn btn-danger">Shop Now</a>
+          </div>
+        </section>
+        <section class="featured-products">
+          <h2>Featured Products</h2>
+          <div class="product-container">
+            {% for product in products %}
+                {% if product.featured %}
+                    <div class="product-card">
+                    <img src="{{product.imageURL}}" alt="">
+                    <h3>{{product.name}}</h3>
+                    <p>${{product.price}}</p>
+                    <a href="#" class="product-button">Add to Cart</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2023 My Ecommerce Store. All rights reserved.</p>
+      </footer>
+      {% endblock %}
+    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src=" {% static 'js/cart.js' %}"> </script>
+</html>
