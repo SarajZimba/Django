@@ -19,7 +19,7 @@ def store(request):
 
     else:
         items=[]
-        order = {'get_cart_total': 0, 'get_cart_items_number': 0}
+        order = {'get_cart_total': 0, 'get_cart_items_number': 0, 'shipping': False}
         cartItems = order['get_cart_items_number']
 
     products = product.objects.all()
@@ -36,7 +36,7 @@ def cart(request):
         cartItems = order.get_cart_items_number
     else:
         items =[]
-        order = {'get_cart_total':0, 'get_cart_items_number':0}
+        order = {'get_cart_total':0, 'get_cart_items_number':0, 'shipping': False}
         cartItems = order['get_cart_items_number']
         #for item in items:
             #count = item.quantity * item.product.price
@@ -64,7 +64,7 @@ def view(request):
 
     else:
         items=[]
-        order = {'get_cart_total': 0, 'get_cart_items_number': 0}
+        order = {'get_cart_total': 0, 'get_cart_items_number': 0, 'shipping': False}
         cartItems = order['get_cart_items_number']
 
     context = {'items': items, 'order': order, 'cartItems': cartItems}
@@ -100,3 +100,4 @@ def landingpage(request):
     products = product.objects.all()
     context = {'products': products}
     return render(request, "landingpage.html", context)
+
