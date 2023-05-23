@@ -103,7 +103,7 @@ def landingpage(request):
     return render(request, "landingpage.html", context)
 
 def processOrder(request):
-    transaction_id = datetime.datetime.now().timestamp
+    transaction_id = datetime.datetime.now().timestamp()
 
     if request.user.is_authenticated:
         customer = request.user.customer

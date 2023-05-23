@@ -20,10 +20,10 @@
 						<p>Shipping Information:</p>
 						<hr>
 						<div class="form-field">
-							<input class="form-control" type="text" name="address" placeholder="Address..">
+							<input class="form-control" type="text" name="address" placeholder="Address.." autocomplete="off">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="city" placeholder="City..">
+							<input class="form-control " type="text" name="city" placeholder="City..">
 						</div>
 						<div class="form-field">
 							<input class="form-control" type="text" name="state" placeholder="State..">
@@ -128,7 +128,7 @@
 				shippingInfo.address = form.address.value
 				shippingInfo.city = form.city.value
 				shippingInfo.state = form.state.value
-				shippingInfo.ziipcode = form.zipcode.value
+				shippingInfo.zipcode = form.zipcode.value
 			}
 			if ( user == 'AnonymousUser'){
 				userFormData.name = form.name.value
